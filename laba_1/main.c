@@ -9,41 +9,14 @@
 //Проверять корректность введенных данных на этапе выполнения. В случае ввода пользователем некорректных данных 
 //(например, отрицательное число членов ряда) на этапе выполнения, возвращать его к повторному вводу, не завершая выполнение программы.
 //Не использовать математические функции (из math.h) для вычисления результата.
-
-
 #include <stdio.h>
-
-
-long double power(double x, int power){    //самописная версия функции pow из библы math
-    double result = 1.0;
-    for (int i = 0; i < power; i++) {
-        result *= x;
-    }
-    //printf("%f", result);
-    return result;
-}
-
-long double factorial(int number) {  //самописная рекурсивная версия функции нахождения факториала 
-    if (number == 1 || number == 0)
-        return 1;
-    return number * factorial(number - 1);
-}
-
-double approximate_series_sum(double x, int num_terms){
-    double sum = 0.0;
-    for (int i = 1; i <= num_terms; i++) {
-        int temp_power = (2*i - 1);
-        sum += ((power(x, temp_power)/factorial(temp_power)));
-        printf("%d: %.7f\n", i, sum);
-    }
-    return 0;
-}
+#include "series_sum_algorithms.h"
 
 
 int main(){
-    //printf("%llu\n", factorial(15));
-    approximate_series_sum(12.0, 140);
-    //power(3.0, 1);
+    //printf("Sum of sequence elements -  %.7f\n", approximate_series_sum_n_terms(12.0, 20));
+    printf("Sum of sequence elements -  %.7f\n", approximate_series_sum_with_accuracy(12.0, 2.5));
+    
+
     return 0;
 }
-
