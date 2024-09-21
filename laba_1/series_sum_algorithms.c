@@ -11,7 +11,6 @@ double approximate_series_sum_with_accuracy(double x, double accuracy){
     double curr_number = 0.0;
     double sum = 0.0;
     int term_index = 1;
-
     do
     {
         int temp_power = (2*term_index - 1);
