@@ -4,12 +4,25 @@
 
 int main(){
     double x;
-    double accuracy;
-    scanf("%lf", &x);
-    scanf("%lf", &accuracy);
+    double input_ans; // Изменяем на double, чтобы считать дробные числа
+    printf("Enter your choice: ");
+    scanf("%lf", &input_ans);   // Используем %lf для считывания double
 
-    printf("Sum of sequence elements -  %.7f\n", approximate_series_sum_with_accuracy(x, accuracy));
+
+
+    if (input_ans == 1)
+    {
+        if (input_ans == (int)input_ans) {
+        printf("You entered an integer: %d\n", (int)input_ans);
+        } else {
+        printf("You entered a floating-point number: %f\n", input_ans);
+        }
+    } else
+    {
+        return 1;
+    }
+    // Проверяем, является ли введенное значение целым
     
-    printf("%f\n", x);
-    return 0; 
+
+    return 0;
 }

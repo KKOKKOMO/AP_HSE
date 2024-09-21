@@ -1,4 +1,6 @@
-long double power(double x, int power){
+#include "custom_math.h"
+
+long double power(const double x,const int power){
     double result = 1.0;
     for (int i = 0; i < power; i++) {
         result *= x;
