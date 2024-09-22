@@ -2,12 +2,8 @@
 #include "series_sum_algorithms.h"
 
 
+
 double approximate_series_sum_with_accuracy(double x, double accuracy){
-    if (accuracy <= 0.0)
-    {
-        printf("Accuracy must be greater than zero.\n");
-        return 0.0;
-    }
     double curr_number = 0.0;
     double sum = 0.0;
     int term_index = 1;
