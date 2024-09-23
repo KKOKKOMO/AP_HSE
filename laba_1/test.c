@@ -1,28 +1,43 @@
 #include <stdio.h>
-#include "series_sum_algorithms.h"
+#include <stdlib.h>
+#include <math.h> // Только для HUGE_VAL
+//#include "series_sum_algorithms.h"
 
-
-int main(){
-    double x;
-    double input_ans; // Изменяем на double, чтобы считать дробные числа
-    printf("Enter your choice: ");
-    scanf("%lf", &input_ans);   // Используем %lf для считывания double
-
-
-
-    if (input_ans == 1)
-    {
-        if (input_ans == (int)input_ans) {
-        printf("You entered an integer: %d\n", (int)input_ans);
-        } else {
-        printf("You entered a floating-point number: %f\n", input_ans);
-        }
-    } else
-    {
-        return 1;
+double is_real(const char *str) {
+    char *endptr; 
+    double value = strtod(str, &endptr); // Преобразуем строку в вещественное число
+                                         // Если endptr указывает на конец строки ('\0'), то ввод корректен
+                                         // Если endptr указывает на что-то другое, значит есть лишние символы
+    if (*endptr != '\0') {
+        return HUGE_VAL; // Лишние символы найдены
     }
-    // Проверяем, является ли введенное значение целым
-    
 
+    return value; // Корректное число
+}
+
+double get_valid_input(){
+    char input[100];
+    double x;
+    int flag;
+    do
+    {
+        printf("Enter a real number: ");
+        scanf("%s", input);
+        x = is_real(input);
+        if (x == HUGE_VAL)
+        {
+            printf("Error input pls again\n");
+            continue;
+        }
+        break;
+    } while (1);
+
+    return x;
+}
+
+
+int main() {
+    double x = get_valid_input();
+    printf("%lf", x);
     return 0;
 }
