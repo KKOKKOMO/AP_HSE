@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h> // Только для HUGE_VAL
-//#include "series_sum_algorithms.h"
+
 
 double is_real(const char *str) {
     char *endptr; 
@@ -18,7 +18,6 @@ double is_real(const char *str) {
 double get_valid_input(){
     char input[100];
     double x;
-    int flag;
     do
     {
         printf("Enter a real number: ");
@@ -33,11 +32,4 @@ double get_valid_input(){
     } while (1);
 
     return x;
-}
-
-
-int main() {
-    double x = get_valid_input();
-    printf("%lf", x);
-    return 0;
 }

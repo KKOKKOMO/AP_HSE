@@ -9,10 +9,13 @@
 //Проверять корректность введенных данных на этапе выполнения. В случае ввода пользователем некорректных данных 
 //(например, отрицательное число членов ряда) на этапе выполнения, возвращать его к повторному вводу, не завершая выполнение программы.
 //Не использовать математические функции (из math.h) для вычисления результата.
+//Программа лоамается если ввести валидное значение для выбора метода, а потом добавить символ не являющийся цифрой
+//Так же исправить логику, при которой после срабатывания if (a == 0) пользователя просят заново ввести x
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "series_sum_algorithms.h"
+#include "validation_func.h"
 
 
 int main(){
@@ -23,7 +26,7 @@ int main(){
     printf("If you want to exit, enter - 3\n");
     do
     {
-        double x;
+        double x = get_valid_input();
         printf("Please, enter your X: ");
         scanf(" %lf", &x);
         double input_ans;
@@ -47,7 +50,8 @@ int main(){
         {
             double accuracy;
             printf("Please, enter your accuracy: ");
-            scanf(" %lf", &accuracy);
+            scanf(" %lf\n", &accuracy);
+            printf("LLL %.10lf", accuracy);
             printf("Sum of sequence elements -  %.7f\n", approximate_series_sum_with_accuracy(x, accuracy));
         } else if (input_ans == 2)
         {
