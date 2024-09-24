@@ -50,8 +50,7 @@ int main(){
         {
             double accuracy;
             printf("Please, enter your accuracy: ");
-            scanf(" %lf\n", &accuracy);
-            printf("LLL %.10lf", accuracy);
+            scanf(" %lf", &accuracy);
             printf("Sum of sequence elements -  %.7f\n", approximate_series_sum_with_accuracy(x, accuracy));
         } else if (input_ans == 2)
         {
