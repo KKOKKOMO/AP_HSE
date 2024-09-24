@@ -1,7 +1,9 @@
-#ifndef VALID_FUNC
-#define VALID_FUNC
+#ifndef VALID_FUNC_H
+#define VALID_FUNC_H
 
 double is_real(const char *str);
-double get_valid_input();
+int is_int(const char *str);
+double get_valid_input_for_real();
+int get_valid_input_for_int();
 
 #endif

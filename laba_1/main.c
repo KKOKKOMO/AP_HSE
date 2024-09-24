@@ -26,25 +26,25 @@ int main(){
     printf("If you want to exit, enter - 3\n");
     do
     {
-        double x = get_valid_input();
         printf("Please, enter your X: ");
-        scanf(" %lf", &x);
-        double input_ans;
-        int a;
+        double x = get_valid_input_for_real();
+        //scanf(" %lf", &x);
+        int input_ans;
+        //int a;
         printf("Select the counting mode: 1 - with accuracy, 2 - with n elements, 3 - exit: ");
-        a = scanf("%lf", &input_ans);
+        input_ans = get_valid_input_for_int();
                                         //Не до конца понял, почему нужен пробел " %lf"? stackoverflow 
                                         //Beacuse scanf accepts a \n character and leaves it in the buffer. To consume that character you can use:
                                         //scanf(" %lf",&ch); Пробел перед %lf говорит функции scanf игнорировать все пробельные символы, такие как пробелы, табуляции и символы новой строки (\n), пока не будет встречен непробельный символ.
                                         //scanf(" %lf", &input_ans); fl - позволяет считать целую и дробную часть 
                                         //Поэтому при таком сравнение мы получае True только, когда input_ans == 1, а не 1.1
-        if (a == 0)
-        {
-            printf("Wrong command. Try again\n");
-            scanf("%*[^\n]"); // эта команда считывает все символы до первого символа новой строки (\n), но не сохраняет их ни в какую переменную. Звёздочка (*) означает, что мы не хотим сохранять считанные данные.
-            scanf("%*c"); // эта команда считывает один символ (обычно символ новой строки, если он есть в буфере) и также игнорирует его.
-            continue;
-        }
+        //if (a == 0)
+        //{
+        //    printf("Wrong command. Try again\n");
+        //    scanf("%*[^\n]"); // эта команда считывает все символы до первого символа новой строки (\n), но не сохраняет их ни в какую переменную. Звёздочка (*) означает, что мы не хотим сохранять считанные данные.
+        //    scanf("%*c"); // эта команда считывает один символ (обычно символ новой строки, если он есть в буфере) и также игнорирует его.
+        //    continue;
+        //}
         
         if (input_ans == 1)         
         {
