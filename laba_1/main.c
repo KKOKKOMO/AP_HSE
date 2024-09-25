@@ -50,13 +50,15 @@ int main(){
         {
             double accuracy;
             printf("Please, enter your accuracy: ");
-            scanf(" %lf", &accuracy);
+            accuracy = get_valid_input_for_real();
+            //scanf(" %lf", &accuracy);
             printf("Sum of sequence elements -  %.7f\n", approximate_series_sum_with_accuracy(x, accuracy));
         } else if (input_ans == 2)
         {
-            int num_terms;
+            //int num_terms;
             printf("Please, enter number of el. of the series: ");
-            scanf(" %d", &num_terms);
+            int num_terms = get_valid_input_for_int();
+            //scanf(" %d", &num_terms);
             printf("Sum of sequence elements -  %.7f\n", approximate_series_sum_n_terms(x, num_terms));
         } else if (input_ans == 3)
         {

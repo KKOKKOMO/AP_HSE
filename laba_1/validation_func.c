@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 #include <math.h> // Только для HUGE_VAL
 
 
@@ -21,7 +22,7 @@ int is_int(const char *str) {
                                          // Если endptr указывает на конец строки ('\0'), то ввод корректен
                                          // Если endptr указывает на что-то другое, значит есть лишние символы
     if (*endptr != '\0') {
-        return LONG_MAX; // Лишние символы найдены
+        return INT_MAX; // Лишние символы найдены
     }
 
     return value; // Корректное число
@@ -38,6 +39,8 @@ double get_valid_input_for_real(){
         if (x == HUGE_VAL)
         {
             printf("Error input pls again\n");
+            scanf("%*[^\n]"); //
+            scanf("%*c");
             continue;
         }
         break;
@@ -54,9 +57,11 @@ int get_valid_input_for_int(){
         //printf("Enter a real number: ");
         scanf(" %s", input);
         x = is_int(input);
-        if (x == LONG_MAX)
+        if (x == INT_MAX)
         {
             printf("Error input pls again\n");
+            scanf("%*[^\n]");
+            scanf("%*c");
             continue;
         }
         break;
@@ -68,8 +73,8 @@ int get_valid_input_for_int(){
 
 //int main(){
 //
-//    //char input[100];
-//    //scanf("%s", input); 
+//    char input[100];
+//    scanf("%s", input); 
 //    int x = get_valid_input_for_int();
 //    printf("%d", x);
 //    return 0;
