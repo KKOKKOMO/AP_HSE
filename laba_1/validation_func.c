@@ -57,7 +57,7 @@ int get_valid_input_for_int(){
         //printf("Enter a real number: ");
         scanf(" %s", input);
         x = is_int(input);
-        if (x == INT_MAX)
+        if (x == INT_MAX || x < 0)
         {
             printf("Error input pls again\n");
             scanf("%*[^\n]");
