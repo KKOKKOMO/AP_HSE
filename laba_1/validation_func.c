@@ -4,7 +4,7 @@
 #include <math.h> // Только для HUGE_VAL
 
 
-double is_real(const char *str) {
+double is_double(const char *str) {
     char *endptr; 
     double value = strtod(str, &endptr); // Преобразуем строку в вещественное число
                                          // Если endptr указывает на конец строки ('\0'), то ввод корректен
@@ -14,6 +14,48 @@ double is_real(const char *str) {
     }
 
     return value; // Корректное число
+}
+
+double get_valid_input_for_double(){
+    char input[100];
+    double x;
+    do
+    {
+        //printf("Enter a real number: ");
+        scanf(" %s", input);
+        x = is_double(input);
+        if (x == HUGE_VAL)
+        {
+            printf("Error input pls again: ");
+            scanf("%*[^\n]"); //
+            scanf("%*c");
+            continue;
+        }
+        break;
+    } while (1);
+
+    return x;
+}
+
+double get_valid_input_for_accuracy(){
+    char input[100];
+    double x;
+    do
+    {
+        //printf("Enter a real number: ");
+        scanf(" %s", input);
+        x = is_double(input);
+        if (x == HUGE_VAL || x <= 0)
+        {
+            printf("Error input pls again: ");
+            scanf("%*[^\n]"); //
+            scanf("%*c");
+            continue;
+        }
+        break;
+    } while (1);
+
+    return x;
 }
 
 int is_int(const char *str) {
@@ -28,27 +70,6 @@ int is_int(const char *str) {
     return value; // Корректное число
 }
 
-double get_valid_input_for_real(){
-    char input[100];
-    double x;
-    do
-    {
-        //printf("Enter a real number: ");
-        scanf(" %s", input);
-        x = is_real(input);
-        if (x == HUGE_VAL)
-        {
-            printf("Error input pls again\n");
-            scanf("%*[^\n]"); //
-            scanf("%*c");
-            continue;
-        }
-        break;
-    } while (1);
-
-    return x;
-}
-
 int get_valid_input_for_int(){
     char input[100];
     int x;
@@ -59,7 +80,7 @@ int get_valid_input_for_int(){
         x = is_int(input);
         if (x == INT_MAX || x < 0)
         {
-            printf("Error input pls again\n");
+            printf("Error input pls again: ");
             scanf("%*[^\n]");
             scanf("%*c");
             continue;
