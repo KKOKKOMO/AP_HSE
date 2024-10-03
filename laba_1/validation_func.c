@@ -1,8 +1,13 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <math.h> // Только для HUGE_VAL
+#include <stdlib.h> // strtod, strtol
+#include <limits.h> // для INT_MAX
+#include <math.h> // для HUGE_VAL
 
+
+void clean_buffer(){
+    scanf("%*[^\n]");
+    scanf("%*c");
+}
 
 double is_double(const char *str) {
     char *endptr; 
@@ -27,8 +32,7 @@ double get_valid_input_for_double(){
         if (x == HUGE_VAL)
         {
             printf("Error input pls again: ");
-            scanf("%*[^\n]"); //
-            scanf("%*c");
+            clean_buffer();
             continue;
         }
         break;
@@ -48,8 +52,7 @@ double get_valid_input_for_accuracy(){
         if (x == HUGE_VAL || x <= 0)
         {
             printf("Error input pls again: ");
-            scanf("%*[^\n]"); //
-            scanf("%*c");
+            clean_buffer();
             continue;
         }
         break;
@@ -81,8 +84,7 @@ int get_valid_input_for_int(){
         if (x == INT_MAX || x < 0)
         {
             printf("Error input pls again: ");
-            scanf("%*[^\n]");
-            scanf("%*c");
+            clean_buffer();
             continue;
         }
         break;
@@ -90,13 +92,3 @@ int get_valid_input_for_int(){
 
     return x;
 }
-
-
-//int main(){
-//
-//    char input[100];
-//    scanf("%s", input); 
-//    int x = get_valid_input_for_int();
-//    printf("%d", x);
-//    return 0;
-//}

@@ -50,8 +50,7 @@ int main(){
         } else
         {
             printf("Wrong command. Try again\n");
-            scanf("%*[^\n]"); //
-            scanf("%*c");
+            clean_buffer();
             continue;
         }
     } while (1);

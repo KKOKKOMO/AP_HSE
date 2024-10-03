@@ -1,7 +1,5 @@
 #include <stdio.h>
-#include <math.h>
 #include "series_sum_algorithms.h"
-
 
 
 double approximate_series_sum_with_accuracy(double x, double accuracy){
@@ -15,7 +13,11 @@ double approximate_series_sum_with_accuracy(double x, double accuracy){
         sum += curr_number;
         printf("%d: %.7f\nCurrenly number is: %.7f\nAccuracy: %.7f\n-------------------\n", term_index, sum, curr_number, accuracy);
         term_index++;
-    } while (fabs(curr_number) > accuracy);    
+        if (curr_number < 0)
+        {
+            curr_number = curr_number*(-1); //аналог модуля из math.h
+        }
+    } while (curr_number > accuracy);    
     return sum;
 }
 
