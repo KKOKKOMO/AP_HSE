@@ -4,13 +4,15 @@
 #include <math.h> // для HUGE_VAL
 
 
+
 void clean_buffer(){
     scanf("%*[^\n]");
     scanf("%*c");
 }
 
 double is_double(const char *str) {
-    char *endptr; 
+    char *endptr;
+    errno = 0; 
     double value = strtod(str, &endptr); // Преобразуем строку в вещественное число
                                          // Если endptr указывает на конец строки ('\0'), то ввод корректен
                                          // Если endptr указывает на что-то другое, значит есть лишние символы
