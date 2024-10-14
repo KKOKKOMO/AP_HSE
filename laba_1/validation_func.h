@@ -1,6 +1,5 @@
 #ifndef VALID_FUNC_H
 #define VALID_FUNC_H
-#include <errno.h>  
 
 void clean_buffer();
 double is_double(const char *str);

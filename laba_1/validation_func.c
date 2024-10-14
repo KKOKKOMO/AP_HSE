@@ -29,7 +29,7 @@ double get_valid_input_for_double(){
     do
     {
         //printf("Enter a real number: ");
-        scanf(" %s", input);
+        scanf("%s", input);
         x = is_double(input);
         if (x == HUGE_VAL)
         {
@@ -49,7 +49,7 @@ double get_valid_input_for_accuracy(){
     do
     {
         //printf("Enter a real number: ");
-        scanf(" %s", input);
+        scanf("%s", input);
         x = is_double(input);
         if (x == HUGE_VAL || x <= 0)
         {
@@ -81,7 +81,7 @@ int get_valid_input_for_int(){
     do
     {
         //printf("Enter a real number: ");
-        scanf(" %s", input);
+        scanf("%s", input);
         x = is_int(input);
         if (x == INT_MAX || x < 0)
         {
