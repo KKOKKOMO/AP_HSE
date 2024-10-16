@@ -2,7 +2,6 @@
 #include "series_sum_algorithms.h"
 
 
-
 double approximate_series_sum_with_accuracy(double x, double accuracy){
     double curr_number = 0.0;
     double sum = 0.0;
@@ -12,12 +11,12 @@ double approximate_series_sum_with_accuracy(double x, double accuracy){
         int temp_power = (2*term_index - 1);
         curr_number = ((power(x, temp_power)/factorial(temp_power)));
         sum += curr_number;
-        //if (curr_number < accuracy) Не понимаю, надо ли выводить пограничное значение: текущий элемент меньше точности.
-        //{
-        //    break;
-        //}
         printf("%d: %.7f\nCurrenly number is: %.7f\nAccuracy: %.7f\n-------------------\n", term_index, sum, curr_number, accuracy);
         term_index++;
+        if (curr_number < 0)
+        {
+            curr_number = curr_number*(-1); //аналог модуля из math.h
+        }
     } while (curr_number > accuracy);    
     return sum;
 }
@@ -29,7 +28,6 @@ double approximate_series_sum_n_terms(double x, int num_terms){
         int temp_power = (2*i - 1);
         curr_number = ((power(x, temp_power)/factorial(temp_power)));
         sum += curr_number;
-        //sum += ((power(x, temp_power)/factorial(temp_power)));
         printf("%d: %.7f\nCurrenly number is: %.7f\n-------------------\n", i, sum, curr_number);
     }
     return sum;
