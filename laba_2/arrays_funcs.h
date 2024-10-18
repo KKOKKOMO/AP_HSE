@@ -2,6 +2,7 @@
 #define ARRAYS_FUNCS
 #include <stdio.h>
 #include <stdlib.h>
+#include <float.h>
 #include "input_funcs.h"
 
 float* create_array(int size_array);

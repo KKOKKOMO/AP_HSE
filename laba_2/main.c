@@ -1,6 +1,7 @@
 #include "arrays_funcs.h"
 
 
+
 int main(){
     int size_array;
     float* array = NULL;
@@ -25,11 +26,21 @@ int main(){
     //scanf("%f", &y);
 
     max_el = max_modul_el(array, size_array, y);
-    if (max_el == -1.0)
+    if (max_el == FLT_MIN)
     {
-        printf("max modul el: None");
+        printf("max modul el: None\n");
     }
-    printf("max modul el: %f\n", max_el);
+    else
+    {
+        printf("max modul el: %f\n", max_el);
+    }
+
+    //printf("FLT_MIN: %f\n", FLT_MIN);
+    //if (FLT_MIN > 0)
+    //{
+    //    printf("FLT_MIN: %f\n", FLT_MIN);
+    //}
+    
 
     avg_pos = avg_between_pos_el(array, size_array);
     if (avg_pos == 0)

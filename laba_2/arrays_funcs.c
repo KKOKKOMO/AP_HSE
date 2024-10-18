@@ -1,3 +1,4 @@
+#include <float.h>
 #include "input_funcs.h"
 
 
@@ -22,7 +23,8 @@ void print_array(float* array, int size_array){
 }
 
 float max_modul_el(float* array, int size_array, float y){
-    float max_el = -1.0;
+    //float max_el = -1.0;
+    float max_el = FLT_MIN;
     for (int i = 0; i < size_array; i++)
     {
         float curr_arr_number = (array[i] >= 0) ? array[i] : array[i]*(-1); // modul(array[i]); 
@@ -39,6 +41,7 @@ float avg_between_pos_el(float* array, int size_array){
     int elemets_counter;
     int idx_first_pos_el = -1;
     int idx_last_pos_el = -1;
+
     for (int i = 0; i < size_array; i++)
     {
         if (array[i] > 0)
@@ -56,10 +59,18 @@ float avg_between_pos_el(float* array, int size_array){
         }
     }
 
-    if ((idx_last_pos_el == -1 || idx_first_pos_el == -1) || idx_last_pos_el == idx_first_pos_el) {
+    //if ((idx_last_pos_el == -1 || idx_first_pos_el == -1) || (idx_last_pos_el == idx_first_pos_el)) {
+    //    return 0;
+    //}
+    if (idx_last_pos_el == idx_first_pos_el) {
         return 0;
     }
+
     elemets_counter = idx_last_pos_el - idx_first_pos_el - 1;
+    if (elemets_counter == 0)
+    {
+        return 0;
+    }
     
     for (int i = idx_first_pos_el+1; i < idx_last_pos_el; i++)
     {
