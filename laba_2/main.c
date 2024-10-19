@@ -1,7 +1,6 @@
 #include "arrays_funcs.h"
 
 
-
 int main(){
     int size_array;
     float* array = NULL;
@@ -40,8 +39,6 @@ int main(){
     //{
     //    printf("FLT_MIN: %f\n", FLT_MIN);
     //}
-    
-
     avg_pos = avg_between_pos_el(array, size_array);
     if (avg_pos == 0)
     {

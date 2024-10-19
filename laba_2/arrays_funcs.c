@@ -59,19 +59,11 @@ float avg_between_pos_el(float* array, int size_array){
         }
     }
 
-    //if ((idx_last_pos_el == -1 || idx_first_pos_el == -1) || (idx_last_pos_el == idx_first_pos_el)) {
-    //    return 0;
-    //}
-    if (idx_last_pos_el == idx_first_pos_el) {
+    elemets_counter = idx_last_pos_el - idx_first_pos_el - 1;
+    if (idx_last_pos_el == idx_first_pos_el || elemets_counter == 0) {
         return 0;
     }
 
-    elemets_counter = idx_last_pos_el - idx_first_pos_el - 1;
-    if (elemets_counter == 0)
-    {
-        return 0;
-    }
-    
     for (int i = idx_first_pos_el+1; i < idx_last_pos_el; i++)
     {
         sum += array[i];
