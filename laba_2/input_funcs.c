@@ -59,6 +59,7 @@ float get_valid_input_for_float(){
         if (x == FLT_MAX || input[0] == '\0')
         {
             printf("Error input pls again: ");
+            input[0] = '\0'; 
             continue;
         }
         break;
@@ -106,7 +107,7 @@ int get_valid_input_for_positive_int(){
         break;
     } while (1);
     //printf("SIMBOL: %c\n", input[0]);
-    //printf("SIMBOL INT: %d\n", x);
+    //printf("SUMBOL INT: %d\n", x);
     return x;
 }
 

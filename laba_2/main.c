@@ -48,6 +48,7 @@ int main(){
     }
 
     printf("Avg between first and last positive el: %f\n", avg_pos);
+    printf("ADDRESS FISRT EL %p\n", array);
     free(array);
     return 0;
 }
