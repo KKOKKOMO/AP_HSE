@@ -59,7 +59,7 @@ float get_valid_input_for_float(){
         if (x == FLT_MAX || input[0] == '\0')
         {
             printf("Error input pls again: ");
-            //clean_buffer();
+            input[0] = '\0'; 
             continue;
         }
         break;
@@ -73,7 +73,6 @@ float get_valid_input_for_positive_float(){
     float x;
     do
     {
-        //printf("Enter a real number: ");
         fgets(input, 100, stdin);
         input[strcspn(input, "\n")] = 0;
         x = is_float(input);
@@ -81,7 +80,6 @@ float get_valid_input_for_positive_float(){
         {
             printf("Error input pls again: ");
             input[0] = '\0';
-            //clean_buffer();
             continue;
         }
         break;
@@ -96,7 +94,6 @@ int get_valid_input_for_positive_int(){
     do
     {
         //printf("\nSIMBOL AFTER INPUT: %c\n", input[0]);
-        //printf("Enter a real number: ");
         fgets(input, 100, stdin);
         input[strcspn(input, "\n")] = 0;
         x = is_int(input);
@@ -105,13 +102,12 @@ int get_valid_input_for_positive_int(){
         {
             printf("Error input pls again_: ");
             input[0] = '\0';
-            //clean_buffer();
             continue;
         }
         break;
     } while (1);
     //printf("SIMBOL: %c\n", input[0]);
-    //printf("SIMBOL INT: %d\n", x);
+    //printf("SUMBOL INT: %d\n", x);
     return x;
 }
 
