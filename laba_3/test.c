@@ -2,6 +2,20 @@
 #define N 4
 
 
+void print_pattern(int array[N][N], int array_size){
+    for (int j = array_size - 1; j >= 0; j--) {
+        for (int i = 0; i < array_size; i++) {
+            printf("%d ", array[i][j]); 
+            if (i + j == array_size - 1) {
+                for (int k = j + 1; k < array_size; k++) {
+                    printf("%d ", array[i][k]);
+                }
+                break; 
+            }
+        }
+    }
+}
+
 int main() {
     int arr[N][N] = {
         {1, 2, 3, 99},
@@ -21,6 +35,9 @@ int main() {
             }
         }
     }
+    printf("\n");
+    print_pattern(arr, N);
+    printf("\n");
     
     return 0;
 }
