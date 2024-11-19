@@ -1,4 +1,3 @@
-#include <float.h>
 #include "input_funcs.h"
 
 
@@ -7,7 +6,6 @@ float* create_array(int size_array){
     printf("Input elements for array(P.S. %d elements): \n", size_array);
     for (int i = 0; i < size_array; i++)
     {
-        //scanf("%f", &array[i]);
         printf("Input element: ");
         array[i] = get_valid_input_for_float();
     }
@@ -16,15 +14,12 @@ float* create_array(int size_array){
 
 void print_array(float* array, int size_array){
     for (int i = 0; i < size_array; i++)
-    {
-        printf("%f\t", array[i]);
-    }
+    printf("%f\t", array[i]);
     printf("\n");   
 }
 
 float max_modul_el(float* array, int size_array, float y){
-    //float max_el = -1.0;
-    float max_el = FLT_MIN;
+    float max_el = -FLT_MIN;
     for (int i = 0; i < size_array; i++)
     {
         float curr_arr_number = (array[i] >= 0) ? array[i] : array[i]*(-1); // modul(array[i]); 

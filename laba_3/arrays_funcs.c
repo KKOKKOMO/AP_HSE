@@ -23,9 +23,7 @@ void print_array(int** array, int size_array){
     for (int i = 0; i < size_array; i++)
     {
         for (int j = 0; j < size_array; j++)
-        {
-            printf("%d\t", array[i][j]);
-        }
+        printf("%d\t", array[i][j]);
         printf("\n");
     }
     printf("\n");

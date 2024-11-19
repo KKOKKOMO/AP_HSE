@@ -24,15 +24,12 @@ int contains_space(const char *str) {
 int is_int(const char *str) {
     char *endptr; 
     if (contains_space(str)) {
-        //clean_buffer();
-        //printf("dasdasdasd\n");
         return INT_MAX;
     }
     const long value = strtol(str, &endptr, 10); 
     if (*endptr != '\0') {
         return INT_MAX;
     }
-    //printf("value last get value: %ld\n", value);
     return value;
 }
 
@@ -93,11 +90,9 @@ int get_valid_input_for_positive_int(){
     int x;
     do
     {
-        //printf("\nSIMBOL AFTER INPUT: %c\n", input[0]);
         fgets(input, 100, stdin);
         input[strcspn(input, "\n")] = 0;
         x = is_int(input);
-
         if (x == INT_MAX || x < 0 || input[0] == '\0')
         {
             printf("Error input pls again_: ");
@@ -106,12 +101,8 @@ int get_valid_input_for_positive_int(){
         }
         break;
     } while (1);
-    //printf("SIMBOL: %c\n", input[0]);
-    //printf("SUMBOL INT: %d\n", x);
     return x;
 }
-
-
 
 
 
