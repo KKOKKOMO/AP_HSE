@@ -1,8 +1,5 @@
 #ifndef ARRAYS_FUNCS
 #define ARRAYS_FUNCS
-#include <stdio.h>
-#include <stdlib.h>
-#include <float.h>
 #include "input_funcs.h"
 
 float* create_array(int size_array);
@@ -11,4 +8,3 @@ float max_modul_el(float* array, int size_array, float y);
 float avg_between_pos_el(float* array, int size_array);
 
 #endif
-

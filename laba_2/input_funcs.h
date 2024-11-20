@@ -5,9 +5,6 @@
 #include <float.h>
 
 
-void clean_buffer();
-double is_double(const char *str);
-int is_int(const char *str);
 float get_valid_input_for_float();
 float get_valid_input_for_positive_float();
 int get_valid_input_for_positive_int();

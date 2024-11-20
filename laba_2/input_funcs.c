@@ -1,15 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h> // strtod, strtol
-#include <string.h>
+#include <string.h> // strcspn
 #include <limits.h> // для INT_MAX
-#include <float.h>
-#include <ctype.h> 
+#include <float.h> // FLT_MAX
+#include <ctype.h>  //isspace
 
-
-void clean_buffer(){
-    scanf("%*[^\n]");
-    scanf("%*c");
-}
 
 int contains_space(const char *str) {
     while (*str) {

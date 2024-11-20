@@ -4,7 +4,8 @@
 #include "input_funcs.h"
 
 #define M_PI 3.14159265358979323846
-// r = 2R*sin(pi/n)
+// l = 2R*sin(pi/n)
+// R = l/(2*sin(pi/n))
 int num_vertic;
 float rotation_angle;
 float circumradius;
