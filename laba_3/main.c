@@ -1,5 +1,6 @@
 #include "arrays_funcs.h"
 
+
 int main(){
     printf("Input array size(1 < N < 10): ");
     int array_size;

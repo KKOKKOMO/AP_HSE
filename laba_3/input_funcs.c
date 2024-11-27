@@ -40,7 +40,6 @@ int int_input_between_1_10(){
         fgets(input, 100, stdin);
         input[strcspn(input, "\n")] = 0;
         x = is_int(input);
-
         if (x == INT_MAX || x < 2 || x >= 10 || input[0] == '\0')
         {
             printf("Error input pls again_: ");

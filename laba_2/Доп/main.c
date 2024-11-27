@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include "input_funcs.h"
 
+
 #define M_PI 3.14159265358979323846
 // l = 2R*sin(pi/n)
 // R = l/(2*sin(pi/n))
