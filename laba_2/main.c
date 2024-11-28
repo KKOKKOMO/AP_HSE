@@ -17,11 +17,12 @@ int main(){
 
     array = create_array(size_array);
     print_array(array, size_array);
+
     printf("Input y: ");
     y = get_valid_input_for_positive_float();
+
     max_el = max_modul_el(array, size_array, y);
-    if (max_el == -FLT_MIN)
-    {
+    if (max_el == -FLT_MIN){
         printf("max modul el: None\n");
     }
     else
@@ -30,7 +31,7 @@ int main(){
     }
 
     avg_pos = avg_between_pos_el(array, size_array);
-    if (avg_pos == 0)
+    if (avg_pos == FLT_MAX)
     {
         printf("Avg between first and last positive el: None\n");
         free(array);
