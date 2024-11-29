@@ -32,8 +32,10 @@ int remove_values(double* array, int size_array, double posi_value) {
 }
 
 void new_array(double* array, int new_size){
-    array = (double*)realloc(array, new_size*sizeof(double));
-
+    if (new_size != 0)
+    {
+        array = (double*)realloc(array, new_size*sizeof(double));
+    }
 }
 
 
