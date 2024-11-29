@@ -28,6 +28,10 @@ float max_modul_el(float* array, int size_array, float y){
             max_el = curr_arr_number;
         }
     }
+
+    if (max_el == -FLT_MIN)
+    return -FLT_MIN;
+    
     return max_el;
 }
 
@@ -56,7 +60,7 @@ float avg_between_pos_el(float* array, int size_array){
 
     elemets_counter = idx_last_pos_el - idx_first_pos_el - 1;
     if (idx_last_pos_el == idx_first_pos_el || elemets_counter == 0) {
-        return 0;
+        return FLT_MAX;
     }
 
     for (int i = idx_first_pos_el+1; i < idx_last_pos_el; i++)
