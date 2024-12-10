@@ -26,7 +26,7 @@ int count_words_in_sentence(const char *original_str){
     int words_count = 0;
     int len_original_str = strlen(original_str);
     char previos_symbol = original_str[0];
-    if (previos_symbol == '\n')
+    if (previos_symbol == '\n' || previos_symbol == '\0')
     {
         return 0;
     }
