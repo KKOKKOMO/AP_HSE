@@ -6,9 +6,6 @@
 #define MAX_LEN_WORD 11
 
 
-
-
-
 size_t count_words_in_sentence(const char *original_str){
     if (original_str == NULL)
     return 0;
@@ -46,8 +43,8 @@ char **exctract_words_from_sentence(const char *original_str, size_t number_of_w
     char copy_original_str[size_origin_str+1];
     strncpy(copy_original_str, original_str, size_origin_str+1);
 
-    printf("ORIGINAL %s\n", original_str);
-    printf("COPY %s\n", copy_original_str);
+    //printf("ORIGINAL %s\n", original_str);
+    //printf("COPY %s\n", copy_original_str);
     
     word = strtok(copy_original_str, " .\n");
     words_array = (char**)malloc(number_of_words * sizeof(char*));
@@ -55,8 +52,8 @@ char **exctract_words_from_sentence(const char *original_str, size_t number_of_w
     {
         words_array[i] = (char*)malloc(MAX_LEN_WORD * sizeof(char));
         strncpy(words_array[i], word, strlen(word) + 1);
-        printf("i:%d ADDRESS: %p\n", i ,words_array[i]);
-        printf("LEN WORD: %lu\n", strlen(word));
+        //printf("i:%zu ADDRESS: %p\n", i ,words_array[i]);
+        //printf("LEN WORD: %lu\n", strlen(word));
         word = strtok(NULL, " .\n");
         
     }
@@ -74,21 +71,21 @@ void free_words_array(char **words_array, int number_of_words) {
 
 
 int main(){
-
     char **words = NULL;
-    
     char origin_str[MAX_STR_LEN];
     fgets(origin_str, MAX_STR_LEN-1, stdin);
+
     size_t size_origin_str = strlen(origin_str);
     char copy_origin_str[size_origin_str+1]; //VLA ARRAY? 
     strncpy(copy_origin_str, origin_str, size_origin_str+1);
+
     size_t number_of_words = count_words_in_sentence(origin_str);
-    printf("number_of_words %d\n", number_of_words);
+    printf("number_of_words %zu\n", number_of_words);
+
     words = exctract_words_from_sentence(origin_str, number_of_words);
     for (size_t i = 0; i < number_of_words; i++)
     {
-        printf("%s\n", words[i]);
-        printf("LEN WORDS[i]: %lu\n", strlen(words[i]));
+        printf("WORD: <%s> - LEN WORDS[%lu]: %lu\n", words[i], i, strlen(words[i]));
     }
     
 
@@ -96,7 +93,6 @@ int main(){
     //printf("%s\n", origin_str);
     //printf("%s\n", copy_origin_str);
     //printf("%d\n", count_words_in_sentence(origin_str));
-//
     //printf("%lu\n", strlen(origin_str));
     //printf("%lu\n", strlen(copy_origin_str));
 
