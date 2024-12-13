@@ -12,12 +12,13 @@ size_t first_dot_idx(const char *original_str){
 
     for (size_t i = 0; i < str_len; i++)
     {
-        if (original_str[i] == '.')
-        return ++dot_idx;
-
+        if (original_str[i] == '.'){
+            //printf("dot_idx: %lu\n", dot_idx);
+            return ++dot_idx;
+        }
         dot_idx++;
     }
-
+    //printf("dot_idx: %lu\n", dot_idx);
     return str_len;
 }
 
@@ -30,6 +31,7 @@ size_t count_words_in_sentence(const char *original_str){
     //printf("dot_idx: %lu\n", dot_idx);
     int len_original_str = strlen(original_str);
     char previos_symbol = original_str[0];
+
     if (previos_symbol == '\n' || previos_symbol == '\0')
     return 0;
     
@@ -42,33 +44,40 @@ size_t count_words_in_sentence(const char *original_str){
         }
         previos_symbol = original_str[i];
     }
+
+    if (number_of_words > 30)
+        {
+            printf("TOO MUCH WORDS GIVE ME 6))\n");
+            return 0;
+        }
     return number_of_words;
 }
 
-char **exctract_words_from_sentence(const char *original_str, size_t number_of_words){
+char **exctract_words_from_sentence(const char *original_str, size_t number_of_words, size_t dot_idx){
     if (number_of_words == 0)
     {
-        printf("The sentence has no words");
-        exit(0); //return NULL для тестов
+        printf("The sentence has no words\n");
+        return NULL; //return NULL для тестов
     }
     
     char **words_array = NULL;
     char *word = NULL;
-    size_t dot_idx = first_dot_idx(original_str);
+    //size_t dot_idx = first_dot_idx(original_str);
     //printf("dot_idx: %lu\n", dot_idx);
     
     size_t size_origin_str = strlen(original_str);
     char copy_original_str[dot_idx+2]; // 6 8
     strncpy(copy_original_str, original_str, dot_idx+2);
+    //printf("LAST STR EL %c\n", copy_original_str[dot_idx+2]);
     copy_original_str[dot_idx+1] = '\0';
 
     //printf("ORIGINAL %s\n", original_str);
     //printf("COPY STR <%s>\n", copy_original_str);
-    
     word = strtok(copy_original_str, " \t.\n");
     words_array = (char**)malloc(number_of_words * sizeof(char*));
     for (size_t i = 0; i < number_of_words; i++)
     {
+        
         words_array[i] = (char*)malloc(MAX_LEN_WORD * sizeof(char));
         strncpy(words_array[i], word, strlen(word) + 1);
         //printf("i:%zu ADDRESS: %p\n", i ,words_array[i]);
@@ -85,6 +94,10 @@ void free_words_array(char **words_array, int number_of_words) {
     free(words_array);
 }
 
+void print_final_sentence(char **words_array, int number_of_words){
+    
+}
+
 
 int main(){
     while (1)
@@ -92,6 +105,7 @@ int main(){
         char **words = NULL;
         char origin_str[MAX_STR_LEN];
         fgets(origin_str, MAX_STR_LEN-1, stdin);
+        size_t dot_idx = first_dot_idx(origin_str);
 
         size_t size_origin_str = strlen(origin_str);
         char copy_origin_str[size_origin_str+1]; //VLA ARRAY? 
@@ -100,7 +114,14 @@ int main(){
         size_t number_of_words = count_words_in_sentence(origin_str);
         printf("number_of_words %zu\n", number_of_words);
 
-        words = exctract_words_from_sentence(origin_str, number_of_words);
+        words = exctract_words_from_sentence(origin_str, number_of_words, dot_idx);
+        if (words == NULL)
+        {
+            free_words_array(words, number_of_words);
+            origin_str[0] = '\0';
+            /* code */
+        }
+        
         for (size_t i = 0; i < number_of_words; i++)
         {
             printf("Idx: <%lu> || WORD: <%s> - LEN WORD[%lu]: %lu\n", i+1, words[i], i, strlen(words[i]));
