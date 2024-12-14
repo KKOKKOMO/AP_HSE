@@ -87,7 +87,7 @@ char **exctract_words_from_sentence(const char *original_str, int number_of_word
     return words_array;
 }
 
-void find_correct_word(char ***words_array, int *number_of_words){
+void find_correct_word(char ***words_array, int *number_of_words){ //Полковник ***
     char **word_arr = *words_array;
     int j = 0;
     for (int i = 0; i < *number_of_words; i++)
@@ -183,18 +183,18 @@ int main(){
         //strncpy(copy_origin_str, origin_str, size_origin_str+1);
 
         int number_of_words = count_words_in_sentence(origin_str);
-        printf("number_of_words %zu\n", number_of_words);
+        printf("number_of_words %d\n", number_of_words);
 
         words = exctract_words_from_sentence(origin_str, number_of_words, dot_idx);
         //printf("find_correct_word %d\n", find_correct_word(words, &number_of_words));
         find_correct_word(&words, &number_of_words);
-        printf("CURR number_of_words %zu\n", number_of_words);
+        printf("CURR number_of_words %d\n", number_of_words);
         char *last_word = delete_duplicate_words(&words, &number_of_words);
-        printf("CURR number_of_words %zu\n", number_of_words);
+        printf("CURR number_of_words %d\n", number_of_words);
         
         for (int i = 0; i < number_of_words; i++)
         {
-            printf("Idx: <%lu> || WORD: <%s> - LEN WORD[%lu]: %lu\n", i+1, words[i], i, strlen(words[i]));
+            printf("Idx: <%d> || WORD: <%s> - LEN WORD[%d]: %lu\n", i+1, words[i], i, strlen(words[i]));
         }
 
         print_final_sentence(words, last_word, number_of_words);
