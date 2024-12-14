@@ -14,7 +14,7 @@ int first_dot_idx(const char *original_str){
     {
         if (original_str[i] == '.'){
             //printf("dot_idx: %lu\n", dot_idx);
-            return i;
+            return ++i;
         }
     }
     printf("str_len: %d\n", str_len);
@@ -108,7 +108,7 @@ void find_correct_word(char ***words_array, int *number_of_words){
     *words_array = (char**)realloc(word_arr, *number_of_words*sizeof(char*));
 }
 
-void delete_duplicate_words(char ***words_array, int *number_of_words){
+char *delete_duplicate_words(char ***words_array, int *number_of_words){
     char **word_arr = *words_array;
     char *last_word = word_arr[*number_of_words-1];
     int j = 0;
@@ -128,6 +128,39 @@ void delete_duplicate_words(char ***words_array, int *number_of_words){
     }
     *number_of_words = j;
     *words_array = (char**)realloc(word_arr, *number_of_words*sizeof(char*));
+
+    return last_word;
+}
+
+char *chage_position(char *word){
+    int j = 0;
+    char first_simbol = word[0];
+    for (int i = 1; i < strlen(word); i++)
+    {
+        word[j] = word[i];
+        j++;
+    }
+    word[strlen(word)-1] = first_simbol;
+    return word;
+}
+
+
+
+void print_final_sentence(char **words_array, char *last_word, int number_of_words){
+    for (int i = 0; i < number_of_words; i++)
+    {
+        if (strcmp(words_array[i], last_word) != 0)
+        printf("%s", chage_position(words_array[i]));
+        if (i < number_of_words - 1)
+        {
+            printf(" ");
+        }
+        else{
+            printf(".");
+        }
+        
+    }
+    printf("\n");
 }
 
 void free_words_array(char **words_array, int number_of_words) {
@@ -135,12 +168,6 @@ void free_words_array(char **words_array, int number_of_words) {
         free(words_array[i]);
         free(words_array);
     }
-
-void print_final_sentence(char **words_array, int number_of_words){
-    
-}
-
-
 
 
 int main(){
@@ -162,7 +189,7 @@ int main(){
         //printf("find_correct_word %d\n", find_correct_word(words, &number_of_words));
         find_correct_word(&words, &number_of_words);
         printf("CURR number_of_words %zu\n", number_of_words);
-        delete_duplicate_words(&words, &number_of_words);
+        char *last_word = delete_duplicate_words(&words, &number_of_words);
         printf("CURR number_of_words %zu\n", number_of_words);
         
         for (int i = 0; i < number_of_words; i++)
@@ -170,7 +197,11 @@ int main(){
             printf("Idx: <%lu> || WORD: <%s> - LEN WORD[%lu]: %lu\n", i+1, words[i], i, strlen(words[i]));
         }
 
-        
+        print_final_sentence(words, last_word, number_of_words);
+
+        //char test[] = {'s', '2', '3', '4', '5', '\0'};
+        //chage_position(test);
+        //printf("%s\n", test);
 
         //printf("%s\n", origin_str);
         //printf("%s\n", copy_origin_str);
