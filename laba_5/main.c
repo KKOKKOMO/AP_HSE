@@ -191,7 +191,15 @@ int main(){
         printf("CURR number_of_words %zu\n", number_of_words);
         char *last_word = delete_duplicate_words(&words, &number_of_words);
         printf("CURR number_of_words %zu\n", number_of_words);
+        //if (number_of_words == 0)
+        //{
+        //    if (words != NULL)
+        //    free_words_array(words, number_of_words);
+        //    origin_str[0] = '\0';
+        //    continue;
+        //}
         
+
         for (int i = 0; i < number_of_words; i++)
         {
             printf("Idx: <%lu> || WORD: <%s> - LEN WORD[%lu]: %lu\n", i+1, words[i], i, strlen(words[i]));
