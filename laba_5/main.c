@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
 #define MAX_STR_LEN 999
 #define MAX_COUNT_WORDS 30
 #define MAX_LEN_WORD 11
@@ -20,6 +21,15 @@ int first_dot_idx(const char *original_str){
     printf("str_len: %d\n", str_len);
 
     return str_len;
+}
+
+int isalnum_word(const char *word){
+    for (int i = 0; i < strlen(word); i++)
+    {
+        if (isalnum(word[i]) == 0)
+        return 0;
+    }
+    return 1;
 }
 
 int count_words_in_sentence(const char *original_str){
@@ -93,7 +103,7 @@ void find_correct_word(char ***words_array, int *number_of_words){ //Полко�
     for (int i = 0; i < *number_of_words; i++)
     {
         int curr_len_word = strlen(word_arr[i]);
-        if (curr_len_word < 10)
+        if (curr_len_word < 10 && isalnum_word(word_arr[i]) != 0)
         {
             if (j != i)
             {
@@ -116,7 +126,7 @@ char *delete_duplicate_words(char ***words_array, int *number_of_words){
     for (int i = 0; i < *number_of_words; i++)
     {
         int curr_len_word = strlen(word_arr[i]);
-        if (strcmp(word_arr[i], last_word) != 0)
+        if (strcmp(word_arr[i], last_word) != 0 && isalnum_word(word_arr[i]) != 0)
         {
             if (j != i)
             {
