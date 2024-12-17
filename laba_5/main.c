@@ -48,7 +48,7 @@ int count_words_in_sentence(const char *original_str){
     }
     if (number_of_words > 30)
         {
-            printf("TOO MUCH WORDS GIVE ME 6 for labs))\n");
+            printf("30 MAX WORDS FOR SENTENCE MIN GRADE FOR LAB\n");
             return 0;
         }
     return number_of_words;
@@ -161,6 +161,7 @@ int main(){
     {
         char **words = NULL;
         char origin_str[MAX_STR_LEN];
+        printf("INPUT SENTENCE: ");
         fgets(origin_str, MAX_STR_LEN-1, stdin);
 
         int dot_idx = first_dot_idx(origin_str);
@@ -175,6 +176,7 @@ int main(){
         for (int i = 0; i < number_of_words; i++)
         printf("Idx: <%d> || WORD: <%s> - LEN WORD[%d]: %lu\n", i+1, words[i], i, strlen(words[i]));
 
+        printf("OUTPUT SENTENCE: ");
         print_final_sentence(words, last_word, number_of_words);
 
         if (words != NULL)

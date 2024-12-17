@@ -7,28 +7,11 @@
 
 
 int main(){
-    char origin_str[MAX_STR_LEN];
-    fgets(origin_str, MAX_STR_LEN-1, stdin);
-    size_t size_origin_str = strlen(origin_str);
-    char copy_origin_str[size_origin_str+1]; //VLA ARRAY? VLA массив нельзя вернуть из функции потому-что выходит из области видимости
-    strncpy(copy_origin_str, origin_str, size_origin_str+1);
-
-    printf("ORIGINAL STR: %s\n", origin_str);
-    printf("COPY STR: %s\n", copy_origin_str);
-
-    char *pch = NULL;
-    pch = strtok(copy_origin_str, " .\n");
-    while (pch != NULL)
-    {
-        printf("strtok STR: %s\n", pch);
-        pch = strtok(NULL, " .\n");
-    }
-    
-    //printf("strtok STR: %s\n", pch);
-//
-    //printf("ORIGINAL STR: %s\n", origin_str);
-
-    //printf("%lu\n", strlen(origin_str));
-    //printf("%lu\n", strlen(copy_origin_str));
+    int i = 0;
+    //char *str_1 = "abcd";
+    //char *str_2 = "123";
+    //strspn(str, "0123");
+    printf("%s\n", strcpy("123", "abcd"));
+    printf("%d", i);
     return 0;
 }
