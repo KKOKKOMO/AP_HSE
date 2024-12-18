@@ -4,6 +4,8 @@
 //и метод правых прямоугольников. 
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
+
 #define N 10 //any even integer
 
 double func(double x){
@@ -12,34 +14,27 @@ double func(double x){
 }
 
 double simpsons_metod(double a, double b){ //delta/3 * (f(x0) + f(xn) + 4*sum(f(x1,3,5...)) + 2*sum(f(x2,4,6...)))
-    double result = 0;
-    int count_fx = (N-2)/2;
-    double even_position_fx[count_fx]; // *2
-    double odd_position_fx[count_fx]; // *4
-    double delta_x = (b - a)/(N);
+    double result = func(a) + func(b);
+    double h = (b - a)/(N);
 
-    for (int i = 0; i < count_fx; i++)
-    {
-        odd_position_fx[i] = func(a + delta_x*(2*i+1));
-        //printf("%d\n", i);
-        //printf("count_fx %d\n", count_fx);
-        printf("odd_position_fx %lf\n", odd_position_fx[i]);
+    for (int i = 1; i < N; i += 2) {
+        result += 4 * func(a + i * h);
     }
-    printf("------------------------------\n");
-
-    for (int i = 1; i <= count_fx; i++)
-    {
-        even_position_fx[i] = func(a + delta_x*(2*i));
-        //printf("%d\n", i);
-        //printf("count_fx %d\n", count_fx);
-        printf("even_position_fx %lf\n", even_position_fx[i]);
+    for (int i = 2; i < N - 1; i += 2) {
+        result += 2 * func(a + i * h);
     }
-    return 0;
+    return result * h / 3;
 }
 
-double right_rectangle_metod(double a, double b, double x){
-    
-    return 0;
+double right_rectangle_metod(double a, double b){
+    double h = (b - a) / N;
+    double sum = 0;
+
+    for (int i = 1; i <= N; i++) {
+        sum += func(a + i * h);
+    }
+
+    return sum * h;
 }
 
 
@@ -49,8 +44,14 @@ int main(){
     scanf("%lf", &a);
     printf("INPUT (b) - high boundary: ");
     scanf("%lf", &b);
-    simpsons_metod(a, b);
-
-    printf("RESULT FUNC: %lf\n", func(2.4));
+    if (a > b)
+    {
+        printf("ERROR: a should be bigger then b");
+        exit(0);
+        /* code */
+    }
+    
+    printf("RESULT FUNC simpsons_metod: %lf\n", simpsons_metod(a, b));
+    printf("RESULT FUNC simpsons_metod: %lf\n", right_rectangle_metod(a, b));
     return 0;
 }
