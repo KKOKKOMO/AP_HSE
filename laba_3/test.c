@@ -1,55 +1,40 @@
-#include <stdio.h>
-#define N 4
+#include "arrays_funcs.h"
 
 
-void print_pattern(int array[][N]){
-    for (int j = N - 1; j >= 0; j--) {
-        for (int i = 0; i < N; i++) {
-            printf("%d ", array[i][j]); 
-            if (i + j == N - 1) {
-                for (int k = j + 1; k < N; k++) {
-                    printf("%d ", array[i][k]);
-                }
-                break; 
-            }
-        }
+int** test_create_array(int size_array){
+    int number = 0;
+    int** array = (int**)malloc(sizeof(int*) * size_array);
+    for (int i = 0; i < size_array; ++i) {
+        array[i] = (int*)malloc(sizeof(int) * size_array);
     }
-}
 
-void print_element(int array[][N], int i, int j) {
-    // Способ 1: Стандартный доступ
-    printf("Standard access: %d\n", array[i][j]);
-
-    // Способ 2: Указатель на массив строк
-    printf("Pointer to array of rows: %d\n", *(*(array + i) + j));
-
-    // Способ 3: Прямое преобразование к int*
-    printf("Direct cast to int*: %d\n", *((int*)array + i * N + j));
-}
-
-int main() {
-    int arr[][N] = {
-        {1, 2, 3, 99},
-        {4, 5, 6, 98},
-        {7, 8, 9, 97},
-        {71, 18, 19, 95}
-    };
-    
-    for (int j = N - 1; j >= 0; j--) {
-        for (int i = 0; i < N; i++) {
-            printf("%d ", arr[i][j]); 
-            if (i + j == N - 1) {
-                for (int k = j + 1; k < N; k++) {
-                    printf("%d ", arr[i][k]);
-                }
-                break; 
-            }
+    for (int i = 0; i < size_array; i++)
+    {
+        for (int j = 0; j < size_array; j++)
+        {
+            //printf("Input el of array[%d][%d]: ", i, j);
+            array[i][j] = number;
+            number++;
         }
     }
     printf("\n");
-    print_pattern(arr);
-    printf("\n");
-    print_element(arr, 2, 2);
-    
+    return array;
+}
+
+void test_print_pattern(){
+    for (int i = 2; i < 10; i++)
+    {
+        printf("MATRIX %dx%d\n", i, i);
+        int array_size = i;
+        int **array = test_create_array(array_size);
+        print_array(array, array_size);
+        print_pattern(array, array_size);
+        free_two_dimension_array(array, array_size);
+        printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    }
+}
+
+int main(){
+    test_print_pattern();
     return 0;
 }

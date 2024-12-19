@@ -44,7 +44,7 @@ void print_pattern(int** array, int array_size){
     printf("\n");
 }
 
-void free_two_demetnion_array(int** array, int array_size){
+void free_two_dimension_array(int** array, int array_size){
     for(int i = 0; i < array_size; i++)
     free(array[i]);
     free(array);
