@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h> // strtod, strtol
 #include <string.h> // strcspn
-#include <limits.h> // для INT_MAX
-#include <float.h> // FLT_MAX
+#include <limits.h> // для INT_MAX DBL_MAX
 #include <ctype.h>  //isspace
+#include <float.h>
 
 
 int contains_space(const char *str) {
@@ -90,7 +90,7 @@ int get_valid_input_for_positive_int(){
         x = is_int(input);
         if (x == INT_MAX || x < 0 || input[0] == '\0')
         {
-            printf("Error input pls again_: ");
+            printf("Error input pls again: ");
             input[0] = '\0';
             continue;
         }

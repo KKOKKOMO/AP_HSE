@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <ctype.h>
+#include <string.h> //strlen strtok strncpy strcmp
+#include <stdlib.h> //malloc realloc free 
+#include <ctype.h> // isalnum
 #define MAX_STR_LEN 999
 #define MAX_LEN_WORD 11
 
@@ -51,6 +51,8 @@ int count_words_in_sentence(const char *original_str){
             printf("30 MAX WORDS FOR SENTENCE MIN GRADE FOR LAB\n");
             return 0;
         }
+
+    //printf("%d words", number_of_words);
     return number_of_words;
 }
 
@@ -94,6 +96,13 @@ void find_correct_word(char ***words_array, int *number_of_words){ //Полко�
         }
     }
     *number_of_words = j;
+    if (*number_of_words == 0)
+    {
+        printf("OUTPUT SENTENCE: ");
+        exit(0);
+        /* code */
+    }
+    
     *words_array = (char**)realloc(word_arr, *number_of_words*sizeof(char*));
 }
 

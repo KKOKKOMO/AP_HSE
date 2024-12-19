@@ -22,7 +22,7 @@ int remove_values(double* array, int size_array, double posi_value) {
     int j = 0; // новое положение в массиве
 
     for (int i = 0; i < size_array; i++) {
-        if ((array[i]>=0 ? array[i] : array[i]*(-1) ) >= posi_value ) { // если не нужно удалять элемент
+        if ((array[i]>=0 ? array[i] : array[i]*(-1) ) > posi_value ) { // если не нужно удалять элемент
             array[j++] = array[i]; // помещаем элемент в новое место
         }
     }

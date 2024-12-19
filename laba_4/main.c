@@ -32,5 +32,6 @@ int main(){
     printf("REALLOCATED ARRAY WITH NEW SIZE(%d): \n", new_size_array);
     print_array(array, new_size_array);
     free(array);
+
     return 0;
 }
