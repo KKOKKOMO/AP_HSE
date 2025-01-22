@@ -3,10 +3,6 @@
 #include "input_funcs.h"
 
 
-#define USER_INPUT 1
-//#define ARRAY_INPUT 1
-
-#ifdef USER_INPUT
 struct avto input_avto(){
     struct avto avto;
 
@@ -31,7 +27,6 @@ struct avto input_avto(){
     return avto;
 }
 
-
 void add_record(FILE *file){
     struct avto record = input_avto();
     int check = 0;
@@ -42,7 +37,24 @@ void add_record(FILE *file){
         exit(1);
     }
 }
-#endif
+
+void add_records_from_array(FILE *file){
+    struct avto record;
+    struct avto records[] = {
+        {"Ivan Ivanov", "Toyota", 2015, 12345, "Red"},
+        {"Petr Petrov", "BMW", 2018, 67890, "Blue"},
+        {"Anna Sidorova", "Mercedes", 2020, 11223, "Black"},
+        {"Sergey Ivanov", "Toyota", 2017, 44567, "Green"},
+        {"Petr Petrov", "Audi", 2019, 78901, "Red"},
+        {"Olga Sidorova", "BMW", 2021, 33456, "Black"}
+    };
+
+    for (int i = 0; i < 5; i++)
+    {
+        record = records[i];
+        fwrite(&record, sizeof(struct avto), 1, file);
+    }
+}
 
 void display_records(FILE *file){
     struct avto record;
@@ -71,7 +83,7 @@ void change_record(FILE *file, int index){
     file_size = ftell(file);
     if (index * sizeof(struct avto) >= file_size)
     {
-        printf("Invalid index\n");
+        printf("Invalid index\n\n");
         return;
     }
     struct avto new_record = input_avto();
