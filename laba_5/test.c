@@ -24,9 +24,19 @@ char *strpbrk_m(char *str_1, char *str_2){
 
 
 
+
+//char *strpbrk_m(char *str_1, char *str_2){
+//    char *return_str = NULL;
+//
+//    return NULL;
+//}
+
+
+
+
 int main(){
-    char str1[15] = "0i123uiy";
-    char str2[] = "12";
+    //char str1[15] = "0i123uiy";
+    //char str2[] = "12";
     //strncat(str1, str2, 4);
     //printf("%lu\n", strspn(str1, "2"));
     //printf("%s", strpbrk(str1, "2"));
@@ -41,13 +51,25 @@ int main(){
     //printf("%s\n", str2);
     //printf("%s\n", str1);
     //strpbrk();
-    printf("strpbrk %s\n", strpbrk(str1, "24"));
-    printf("strpbrk_m %s\n", strpbrk_m(str1, "2"));
+    //printf("strpbrk %s\n", strpbrk(str1, "24"));
+    //printf("strpbrk_m %s\n", strpbrk_m(str1, "2"));
     //char origin_str[MAX_STR_LEN];
     //printf("INPUT SENTENCE: ");
     //fgets(origin_str, MAX_STR_LEN, stdin);
     //printf("%s\n", origin_str);
+    //int a = 10;
+    //int* ptr = &a;
+    //printf("%d", *ptr);
+    //printf("*strpbrk_m %p\n", *strpbrk_m);
+    //int arr[2];
 
+    //int a = arr[0];
+
+
+    int a[] = {1,2,3,4,5,6,7};
+    char c = '2';
+    printf("%c", 10*c);
+    //10*(*(&a[0] + 2) + *&a[3])
     //char str3[] = "qwer";
     return 0;
 }
