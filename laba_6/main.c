@@ -1,11 +1,13 @@
 #include "files_funcs.h"
-
-#define USER_INPUT 1
 //#define ARRAY_INPUT 1
 
 int main(){
     FILE* file = fopen("mem.bin", "w+b");
     int choice;
+    #ifdef ARRAY_INPUT
+    add_records_from_array(file);
+    #endif
+
     while (1)
     {
         printf("       Menu\n");
@@ -23,12 +25,7 @@ int main(){
         switch (choice)
         {
         case 1: {
-            #ifdef USER_INPUT
             add_record(file);
-            #endif
-            #ifdef ARRAY_INPUT
-            add_records_from_array(file);
-            #endif
             break;
         }
         case 2: {
