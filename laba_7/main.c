@@ -48,6 +48,7 @@ int main(){
                 run_time = measure_time(sort_func_arr[i], arr, arr_lens[j], avto_compare);
                 printf("Sort type: %s | Runtime: %.4f | Arr len: %d\n", type_of_sort[i], run_time, arr_lens[j]);
                 printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                free(arr);
             }
             printf("-------------------------------------------------------\n");
         }
@@ -66,6 +67,7 @@ int main(){
             run_time = measure_time(sort_func_arr[i], arr, arr_len, avto_compare);
             printf("Sort type: %s | Runtime: %.4f | Arr len: %d\n", type_of_sort[i], run_time, arr_len);
             printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+            free(arr);
         }
         break;
     }
