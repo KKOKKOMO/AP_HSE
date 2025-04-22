@@ -27,10 +27,8 @@ TreeNode* buildTree(int* values, int N, int currentLevel, int maxLevel, TreeNode
         return NULL;
     }
 
-    // Create current node
     TreeNode* node = createNode(values[currentIndex++], parent);
 
-    // Build left and right subtrees
     node->left = buildTree(values, N, currentLevel + 1, maxLevel, node);
     node->right = buildTree(values, N, currentLevel + 1, maxLevel, node);
 
