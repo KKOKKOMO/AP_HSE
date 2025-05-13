@@ -11,6 +11,7 @@ int main(){
     while (1)
     {
         printf("       Menu\n");
+        printf("%lu", sizeof(struct avto));
         printf("-------------------\n");
         printf("1. Add record\n");
         printf("2. Delete record\n");

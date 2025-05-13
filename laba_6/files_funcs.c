@@ -1,4 +1,5 @@
-#include <io.h> //chsize trunc
+//#include <io.h> //chsize trunc
+#include <unistd.h>
 #include "avto_struct.h"
 #include "input_funcs.h"
 
@@ -111,7 +112,8 @@ void delete_record(FILE *file, int index){
         fseek(file, (i-1) * sizeof(struct avto), SEEK_SET);
         fwrite(&record, sizeof(struct avto), 1, file);
     }
-    chsize(file_descriptor, file_size - sizeof(struct avto));
+    //chsize(file_descriptor, file_size - sizeof(struct avto));
+    ftruncate(file_descriptor, file_size - sizeof(struct avto));
 }
 
 void search_by_owner_name(FILE *file){

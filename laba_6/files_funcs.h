@@ -1,6 +1,7 @@
 #ifndef FILES_FUNCS
 #define FILES_FUNCS
-#include <io.h>
+//#include <io.h>
+#include <unistd.h>
 #include "avto_struct.h"
 #include "input_funcs.h"
 
