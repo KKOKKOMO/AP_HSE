@@ -7,4 +7,11 @@ typedef struct node
     int degr;
     struct node *next;
 }node;
+
+typedef struct dnode{
+    char *word;
+    struct dnode *prev;
+    struct dnode *next;
+} dnode;
+
 #endif
