@@ -33,6 +33,23 @@ dnode* create_dnode(char *word){
     return d_node;
 }
 
+dnode* append_to_tail(dnode *head, char *word){
+    
+
+    dnode *cur = head;
+    dnode *new_dnode = create_dnode(word);
+    if (head == NULL) {
+        // Список пуст — новый узел становится головой
+        return new_dnode;
+    }
+    while (cur->next)
+        cur = cur->next;
+    cur->next = new_dnode;
+    new_dnode->prev = cur;
+    return head;
+}
+
+
 dnode* create_even_list(char *string){
     dnode *head = NULL;
     int len_word = 0;
@@ -60,11 +77,12 @@ dnode* create_odd_list(char *string){
     {
         if (strlen(word) % 2 != 0)
         {
-            dnode *new_dnode = create_dnode(word);
-            new_dnode->next = head;
-            if (head != NULL)
-                head->prev = new_dnode;
-            head = new_dnode;
+            //dnode *new_dnode = create_dnode(word);
+            //new_dnode->next = head;
+            //if (head != NULL)
+            //    head->prev = new_dnode;
+            //head = new_dnode;
+            head = append_to_tail(head, word);
         }
         word = strtok(NULL, " ");
     }

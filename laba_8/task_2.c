@@ -16,20 +16,23 @@ void task_2(){
     char *copy_cutted_str = strdup(cutted_str);
     dnode *head_even = create_even_list(cutted_str);
     dnode *head_odd = create_odd_list(copy_cutted_str);
-    if ((head_even != NULL) & (head_odd != NULL))
+    if ((head_even != NULL) && (head_odd != NULL))
     {
         dnode *result_list = merge_even_odd(head_even, head_odd);
         print_list(result_list);
-                free_list(result_list);
+        printf("\n");
+        free_list(result_list);
         return;
-    }else if (head_even != NULL & !head_odd)
+    }else if (head_even != NULL && !head_odd)
     {
         print_list(head_even);
+        printf("\n");
         free_list(head_even);
         return;
-    }else if (!head_even & head_odd != NULL)
+    }else if (!head_even && head_odd != NULL)
     {
         print_list(head_odd);
+        printf("\n");
         free_list(head_odd);
         return;
     }
