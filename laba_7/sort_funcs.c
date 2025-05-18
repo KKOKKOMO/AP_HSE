@@ -50,10 +50,9 @@ void print_two_type_sort(sort_func_ptr sort_func, sort_func_ptr sort_func_revers
         {"Petr Petrov", "Audi", 2019, 78902, "Red"},
         {"Petr Petrov", "Audi", 2019, 78901, "White"}
     };
-    int n = sizeof(sample) / sizeof(sample[0]);
-
-    avto copy1[n];
-    avto copy2[n];
+    int n = sizeof(sample) / sizeof(sample[0]); //n=9
+    avto copy1[9];
+    avto copy2[9];
     memcpy(copy1, sample, sizeof(sample));
     memcpy(copy2, sample, sizeof(sample));
 
