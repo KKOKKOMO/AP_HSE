@@ -1,6 +1,6 @@
 #include "task_1.h"
 #include "task_2.h"
-//#define TASK_1_RUN
+#define TASK_1_RUN
 
 
 int main(){
