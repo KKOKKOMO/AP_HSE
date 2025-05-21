@@ -21,18 +21,21 @@ void task_2(){
         dnode *result_list = merge_even_odd(head_even, head_odd);
         print_list(result_list);
         printf("\n");
+        free(copy_cutted_str);
         free_list(result_list);
         return;
     }else if (head_even != NULL && !head_odd)
     {
         print_list(head_even);
         printf("\n");
+        free(copy_cutted_str);
         free_list(head_even);
         return;
     }else if (!head_even && head_odd != NULL)
     {
         print_list(head_odd);
         printf("\n");
+        free(copy_cutted_str);
         free_list(head_odd);
         return;
     }
