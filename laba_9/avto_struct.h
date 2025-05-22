@@ -1,6 +1,16 @@
 #ifndef AVTO_STRUCT
 #define AVTO_STRUCT
 
+
+typedef struct binary_tree bnode;
+
+struct binary_tree
+{
+    avto data;
+    bnode *left;
+    bnode *right;
+};
+
 typedef struct avto
 {
     char owner_name[100];
