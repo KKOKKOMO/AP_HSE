@@ -5,7 +5,6 @@
 #include <string.h>
 
 
-
 bnode* bt_insert(bnode *root, avto *car_data){
     if (root == NULL){
         bnode *node = (bnode*)malloc(sizeof(bnode));
@@ -61,8 +60,11 @@ void bnode_free(bnode *root){
 
 void print_avto_t(avto *some_avto){
     printf("Owner: %-15s  Brand: %-10s  Year: %d  License: %d  Color: %s\n", 
-            some_avto->owner_name, some_avto->car_brand, some_avto->year_of_issue, 
-            some_avto->state_license_plate, some_avto->color);
+            some_avto->owner_name, 
+            some_avto->car_brand, 
+            some_avto->year_of_issue, 
+            some_avto->state_license_plate, 
+            some_avto->color);
 }
 
 void pre_ord_tree_print(bnode *root){
@@ -72,4 +74,22 @@ void pre_ord_tree_print(bnode *root){
         pre_ord_tree_print(root->left);
         pre_ord_tree_print(root->right);
     } 
+}
+
+void b_tree_operations(int num, char* search_name) {
+    bnode *root = NULL;
+    root = fill_tree(root, num);
+    //pre_ord_tree_print(root);
+    printf("===============================\n");
+    printf("Bin Tree Searching for element:\n");
+    bnode *found_root = bt_find(root, search_name);
+
+    if (found_root != NULL) {
+        printf("Found element:\n");
+        print_avto_t(&found_root->data);
+    } else {
+        printf("Element with name '%s' not found.\n", search_name);
+    }
+    
+    bnode_free(root);
 }
