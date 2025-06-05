@@ -23,6 +23,10 @@ int main(){
     //srand(56);
     //linear_search(30, "Viktoria Fedorova");
     //---------------------------
+    int num_el;
+    printf("Input num of el: ");
+    num_el = get_valid_input_for_positive_int();
+    printf("\n");
     int choice;
     printf("       Menu\n");
     printf("-------------------\n");
@@ -30,7 +34,6 @@ int main(){
     printf("2. Bin Tree\n");
     printf("3. Red-Black Tree\n");
     printf("4. Start test for [100,...,300000] el\n");
-    printf("5. Generate an array with n el\n");
     printf("0. Exit\n\n");
     printf("Your choice: ");
     choice = get_valid_input_for_positive_int();
@@ -39,17 +42,17 @@ int main(){
     {
     case 1: {
         srand(56);
-        linear_search(30, "Viktoria Fedorova");
+        linear_search(num_el, "Viktoria Fedorova");
         break;
     }
     case 2: {
         srand(56);
-        b_tree_operations(30, "Viktoria Fedorova");
+        b_tree_operations(num_el, "Viktoria Fedorova");
         break;
     }
     case 3: {
         srand(56);
-        demo_rb_tree_operations(30, "Viktoria Fedorova");
+        demo_rb_tree_operations(num_el, "Viktoria Fedorova");
         break;
     }
     case 4: {
@@ -69,9 +72,6 @@ int main(){
             }
             printf("-------------------------------------------------------\n");
         }
-        break;
-    }
-    case 5: {
         break;
     }
     case 0: {

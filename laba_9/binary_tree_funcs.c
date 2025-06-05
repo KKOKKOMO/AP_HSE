@@ -65,16 +65,7 @@ void print_avto_t(avto *some_avto){
             some_avto->year_of_issue, 
             some_avto->state_license_plate, 
             some_avto->color);
-}
-
-void pre_ord_tree_print(bnode *root){
-    if (root)
-    {
-        print_avto_t(&(root->data));
-        pre_ord_tree_print(root->left);
-        pre_ord_tree_print(root->right);
-    } 
-}
+}    
 
 void b_tree_operations(int num, char* search_name) {
     bnode *root = NULL;
