@@ -12,9 +12,9 @@ int main(){
     int choice;
     printf("       Menu\n");
     printf("-------------------\n");
-    printf("1. Bubble Sort\n");
-    printf("2. Cocktail Sort\n");
-    printf("3. Heapsort\n");
+    printf("1. djb2_hash\n");
+    printf("2. fnv1a_hash\n");
+    printf("3. ascii_sum_hash\n");
     printf("4. Start test for [1000,...,1000000] el\n");
     printf("0. Exit\n\n");
     printf("Your choice: ");
@@ -43,10 +43,11 @@ int main(){
         {
             for (int j = 0; j < 7; j++)
             {
+                srand(1);
                 HashTable* table = create_and_fill_table(arr_lens[j]*2, arr_lens[j], hash_func_arr[i]);
                 print_table(table);
                 
-                double run_time = measure_time(table, "tvshb", hash_func_arr[i]);
+                double run_time = measure_time(table, "ijlba", hash_func_arr[i]);
                 printf("HASH FUNC TYPE: %s | Runtime: %.4f | NUM ITEMS: %d\n", hash_type[i], run_time, arr_lens[j]);
                 printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                 free_table(table);

@@ -50,7 +50,7 @@ HashNode* search(HashTable* table, char* owner_name, hash_func hash_f){
     while (found_node != NULL)
     {
         if (strcmp(found_node->car.owner_name, owner_name) == 0){
-            printf("1\n");
+            printf("1------------------------------------------------------------------\n");
             return found_node;
         }
             
